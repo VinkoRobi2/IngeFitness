@@ -1,7 +1,7 @@
-import React from "react";
-import "./Hero.css";
 
-// Reemplaza por la URL de tu foto/modelo en bikini negro
+import "../styles/Hero.css";
+
+
 const IMG_URL =
   "https://images.unsplash.com/photo-1596464716121-9b7ca0e32fcb?auto=format&fit=crop&w=400&q=80";
 
@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="hero-container">
         <div className="hero-texts">
           <h1 className="hero-title">
-            Poses de <span>Bikini Fitness</span> para resaltar tu figura
+            Poses de Bikini Fitnesspara resaltar tu figura
           </h1>
           <p className="hero-desc">
             Sesiones de poses diseñadas por profesionales. Luce segura, sensual
