@@ -3,6 +3,8 @@ package main
 import (
 	"database/sql"
 	"net/http"
+	"os"
+	"log"
 	"time"
 	"strings"
 	"github.com/gin-contrib/cors"
@@ -56,7 +58,7 @@ func AuthMiddleware() gin.HandlerFunc {
 
 		token, err := jwt.Parse(tokenStr, func(token *jwt.Token) (interface{}, error) {
 			if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-				return nil, jwt.ErrTokenInvalidType
+				return nil, http.ErrNotSupported
 			}
 			return jwtKey, nil
 		})
@@ -89,7 +91,7 @@ func AuthMiddleware() gin.HandlerFunc {
 
 func Login(c*gin.Context){
 	var admin Admin
-	if err := c.BindJSON(admin);err!= nil{
+	if err := c.BindJSON(&admin);err!= nil{
 		c.JSON(http.StatusBadRequest, gin.H{
 			"message":"Datos enviados erroneamente",
 			"success":false,
@@ -159,7 +161,7 @@ func ListarCita(c*gin.Context){
 	var citas []Cita
 	for rows.Next() {
 		var q Cita
-		if err := rows.Scan(&q.ID, &q.Apellido, &q.Email, &q.Fecha); err != nil {
+		if err := rows.Scan(&q.ID, &q.Nombre, &q.Apellido, &q.Email, &q.Fecha); err != nil {
 			c.JSON(http.StatusInternalServerError,gin.H{
 				"message": "Error al leer datos de cita",
 				"error": err.Error(),
@@ -225,7 +227,7 @@ func Agendarcitas(c*gin.Context){
 			"success":false,
 		},)
 	}
-	query := "INSERT INTO citas (nombre, apellido, email, fecha) VALUES (?, ?, ?)"
+	query := "INSERT INTO citas (nombre, apellido, email, fecha) VALUES (?, ?, ?, ?)"
 	res , err := db.Exec(query,usuario.Nombre,usuario.Apellido,usuario.Fecha)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
@@ -254,21 +256,69 @@ func Agendarcitas(c*gin.Context){
 
 
 
+func main() {
 
-func main(){
-	var err error
-	db, err = sql.Open("mysql","92.168.65")
-	if err != nil{
-		panic(err.Error())
+	urlbase := os.Getenv("MYSQL_DSN")           
+	port := os.Getenv("PORT")              
+	if port == "" {
+		port = "8080" 
 	}
-	defer db.Close()
-	router := gin.Default()
+	jwtSecret := os.Getenv("JWT_SECRET")   
+	if jwtSecret == "" {
+		log.Fatal("JWT_SECRET no está definido en las variables de entorno")
+	}
+	jwtKey = []byte(jwtSecret)
+
+	dbConn, err := sql.Open("mysql", urlbase)
+	if err != nil {
+		log.Fatalf("Error al conectar con base de datos: %v", err)
+	}
+	defer dbConn.Close()
+
+
+	if err := dbConn.Ping(); err != nil {
+		log.Fatalf("No se pudo conectar a la base de datos: %v", err)
+	}
+	db = dbConn 
+
+
+	gin.SetMode(gin.ReleaseMode)
+	router := gin.New()
+
+	router.Use(gin.Logger())
+	router.Use(gin.Recovery())
+
+
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"*"},
+		AllowOrigins:     []string{"https://tusitio.com", "https://www.tusitio.com"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
-		AllowCredentials: true, 
+		AllowCredentials: true,
+		MaxAge:           12 * time.Hour,
 	}))
-	router.GET("/Nilsvaleverga",Login)
-	
+
+
+	router.POST("/login", Login)
+	router.POST("/citas", Agendarcitas)
+
+
+	adminGroup := router.Group("/admin")
+	adminGroup.Use(AuthMiddleware())
+	{
+		adminGroup.GET("/citas", ListarCita)
+		adminGroup.PUT("/citas/:id", UpdateCita)
+	}
+
+	srv := &http.Server{
+		Addr:         ":" + port,
+		Handler:      router,
+		ReadTimeout:  10 * time.Second,
+		WriteTimeout: 15 * time.Second,
+		IdleTimeout:  60 * time.Second,
+	}
+
+	log.Printf("Servidor iniciado en puerto %s", port)
+	if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+		log.Fatalf("Error en servidor: %v", err)
+	}
 }
