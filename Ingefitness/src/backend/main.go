@@ -2,8 +2,9 @@ package main
 
 import(
 	"net/http"
-		"database/sql"
+	"database/sql"
 	_ "github.com/go-sql-driver/mysql" 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 var db *sql.DB
@@ -57,11 +58,40 @@ func Login(c*gin.Context){
 	c.JSON(http.StatusAccepted, gin.H{
 		"message":"Inicio de sesion exitoso",
 		"success":true,
-	},
-	)
+	},)
+}
+
+func Agendarcitas(c*gin.Context){
+	var usuario User
+	if err:= c.BindJSON(&usuario); err != nil{
+		c.JSON(http.StatusBadRequest,gin.H{
+			"message":"Ha ocurrido un error",
+			"error":err.Error(),
+			"success":false,
+		},)
+	}
+	query := "INSERT INTO citas (nombre, apellido, email, fecha) VALUES (?, ?, ?)"
+	res , err := db.Exec(query,usuario.Nombre,usuario.Apellido,usuario.Fecha)
+
 }
 
 
+
+
 func main(){
+	var err error
+	db, err = sql.Open("mysql","92.168.65")
+	if err != nil{
+		panic(err.Error())
+	}
+	defer db.Close()
+	router := gin.Default()
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
+		AllowCredentials: true, 
+	}))
+	router.GET("/Nilsvaleverga",Login)
 	
 }
