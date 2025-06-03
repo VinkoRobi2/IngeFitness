@@ -1,6 +1,7 @@
 import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
 import CardsSection from "./Components/CardsSection";
+import PlansSection from "./Components/Planes";
 
 
 
@@ -9,6 +10,7 @@ const App = ()=>{
     <>
     <Navbar/>
     <Hero/>
+    <PlansSection/>
     <CardsSection/>
     </>
   )
