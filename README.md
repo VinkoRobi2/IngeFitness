@@ -9,9 +9,6 @@ Proyecto en fase inicial
 
 -Definido lo que se quiere hacer en el front end
 
--Pero si hay otra especie de funicionalidad o backend el cliente debe responder el mensaje que Vinko le envio
+-Definido Back, con Golang por ahora
 
 -Status: En proceso
-
-
-Status funcionalidades: Esperando respuesta del cliente si desea algo mas robusto que una pagina estatica

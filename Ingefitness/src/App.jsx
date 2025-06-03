@@ -1,9 +1,14 @@
+import Navbar from "./Components/Navbar";
+import Hero from "./Components/Hero";
+
+
 
 const App = ()=>{
   return(
     <>
-    <h1>Ricardo vales verga</h1>
+    <Navbar/>
+    <Hero/>
     </>
   )
-}
+} 
 export default App
