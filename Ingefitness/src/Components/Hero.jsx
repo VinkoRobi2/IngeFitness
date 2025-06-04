@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="hero-container">
         <div className="hero-texts">
           <h1 className="hero-title">
-            Poses de Bikini Fitnesspara resaltar tu figura
+            Poses de Bikini Fitness para resaltar tu figura
           </h1>
           <p className="hero-desc">
             Sesiones de poses diseñadas por profesionales. Luce segura, sensual

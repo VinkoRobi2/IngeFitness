@@ -17,10 +17,13 @@
 }
 
 @keyframes logoPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     filter: drop-shadow(0 0 5px #ffd700);
     transform: scale(1);
   }
+
   50% {
     filter: drop-shadow(0 0 15px #fffacd);
     transform: scale(1.05);
@@ -88,4 +91,9 @@
   color: #ff4c4c;
   font-weight: 600;
   text-align: center;
+}
+
+
+body {
+  background-color: black;
 }
