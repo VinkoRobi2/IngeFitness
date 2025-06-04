@@ -1,4 +1,3 @@
-Proyecto en fase inicial
 
 
 
@@ -7,8 +6,8 @@ Proyecto en fase inicial
 
 -Plazo un mes terminado el 18 de junio del 2025
 
--Definido lo que se quiere hacer en el front end
+-frontend en Proceso
 
--Definido Back, con Golang por ahora
+-Backend terminado
 
 -Status: En proceso
