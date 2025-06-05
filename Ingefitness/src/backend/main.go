@@ -8,6 +8,7 @@ import (
 	"time"
 	"strings"
 	"github.com/gin-contrib/cors"
+	"github.com/joho/godotenv"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
 	_ "github.com/go-sql-driver/mysql"
@@ -255,26 +256,31 @@ func Agendarcitas(c*gin.Context){
 }
 
 
-
 func main() {
 
-	urlbase := os.Getenv("MYSQL_DSN")           
-	port := os.Getenv("PORT")              
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error al cargar archivo .env")
+	}
+
+
+	urlbase := os.Getenv("MYSQL_DSN")
+	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080" 
 	}
-	jwtSecret := os.Getenv("JWT_SECRET")   
+	jwtSecret := os.Getenv("JWT_SECRET")
 	if jwtSecret == "" {
 		log.Fatal("JWT_SECRET no está definido en las variables de entorno")
 	}
 	jwtKey = []byte(jwtSecret)
+
 
 	dbConn, err := sql.Open("mysql", urlbase)
 	if err != nil {
 		log.Fatalf("Error al conectar con base de datos: %v", err)
 	}
 	defer dbConn.Close()
-
 
 	if err := dbConn.Ping(); err != nil {
 		log.Fatalf("No se pudo conectar a la base de datos: %v", err)
@@ -285,23 +291,23 @@ func main() {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.New()
 
-	router.Use(gin.Logger())
-	router.Use(gin.Recovery())
 
+	router.Use(gin.Logger())    
+	router.Use(gin.Recovery())   
 
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"https://tusitio.com", "https://www.tusitio.com"},
+		AllowOrigins:     []string{"https://tusitio.com", "https://www.tusitio.com"}, 
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
 		AllowCredentials: true,
-		MaxAge:           12 * time.Hour,
+		MaxAge:           12 * time.Hour, 
 	}))
 
 
 	router.POST("/login", Login)
 	router.POST("/citas", Agendarcitas)
 
-
+	
 	adminGroup := router.Group("/admin")
 	adminGroup.Use(AuthMiddleware())
 	{
@@ -309,12 +315,13 @@ func main() {
 		adminGroup.PUT("/citas/:id", UpdateCita)
 	}
 
+	
 	srv := &http.Server{
-		Addr:         ":" + port,
-		Handler:      router,
-		ReadTimeout:  10 * time.Second,
-		WriteTimeout: 15 * time.Second,
-		IdleTimeout:  60 * time.Second,
+		Addr:         ":" + port,    
+		Handler:      router,         
+		ReadTimeout:  10 * time.Second,  
+		WriteTimeout: 15 * time.Second,  
+		IdleTimeout:  60 * time.Second,  
 	}
 
 	log.Printf("Servidor iniciado en puerto %s", port)
