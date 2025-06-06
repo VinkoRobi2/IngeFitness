@@ -4,13 +4,9 @@ import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
 import CardsSection from "./Components/CardsSection";
 import PlansSection from "./Components/Planes";
-import AdminLogin from "./Components/AdminLogin";   
-//import AdminPanel from "./pages/AdminPanel";  
-
-
-/*
-        <Route path="/admin/panel" element={<AdminPanel />} 
-*/
+import AdminLogin from "./Components/AdminLogin";
+import AboutUs from "./Components/AboutUs";
+import Footer from "./Components/Footer";
 
 const Home = () => (
   <>
@@ -18,6 +14,8 @@ const Home = () => (
     <Hero />
     <PlansSection />
     <CardsSection />
+    <AboutUs />
+    <Footer />
   </>
 );
 
