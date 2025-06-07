@@ -1,9 +1,9 @@
-
+import preuab from "../imagenes/prueba.jpg"
 import "../styles/Hero.css";
 
 
 const IMG_URL =
-  "https://images.unsplash.com/photo-1596464716121-9b7ca0e32fcb?auto=format&fit=crop&w=400&q=80";
+  preuab
 
 export default function Hero() {
   return (
@@ -32,7 +32,7 @@ export default function Hero() {
         </div>
         <div className="hero-img-wrapper">
           <img
-            src={IMG_URL}
+         
             alt="Modelo en Bikini Fitness"
             className="hero-img"
           />

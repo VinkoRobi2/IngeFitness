@@ -56,7 +56,7 @@ export default function PlansSection() {
           <div className="plans-card" key={plan.id}>
             <div className="plans-img-wrapper">
               <img
-                src={plan.imgUrl}
+                
                 alt={plan.title}
                 className="plans-img"
               />

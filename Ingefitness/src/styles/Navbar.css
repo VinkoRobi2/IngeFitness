@@ -100,7 +100,7 @@
   width: 110%;
 }
 .navbar-links li a.active {
-  color: #FFD700;
+ color: #FFD700;
   font-weight: 600;
 }
 .navbar-links li a.active::before {
@@ -186,7 +186,6 @@
   }
 }
 
-/* ===== SUBTIL ANIMACIÓN DE ENTRADA ===== */
 .navbar-links li {
   animation: nav-fadein 0.78s cubic-bezier(.64,-0.34,.55,1.49) both;
 }

@@ -8,6 +8,7 @@ import AdminLogin from "./Components/AdminLogin";
 import AboutUs from "./Components/AboutUs";
 import Footer from "./Components/Footer";
 
+
 const Home = () => (
   <>
     <Navbar />
@@ -16,6 +17,7 @@ const Home = () => (
     <CardsSection />
     <AboutUs />
     <Footer />
+
   </>
 );
 
