@@ -1,9 +1,9 @@
-import preuab from "../imagenes/prueba.jpg"
+import inicial from "../imagenes/main.jpg"
 import "../styles/Hero.css";
 
 
 const IMG_URL =
-  preuab
+  inicial
 
 export default function Hero() {
   return (
@@ -11,11 +11,10 @@ export default function Hero() {
       <div className="hero-container">
         <div className="hero-texts">
           <h1 className="hero-title">
-            Poses de Bikini Fitness para resaltar tu figura
+            El cambio de tu vida empieza <span id="aqui">aquí</span>
           </h1>
           <p className="hero-desc">
-            Sesiones de poses diseñadas por profesionales. Luce segura, sensual
-            y poderosa en cada fotografía.
+            Entrenamiento y nutrición personalizados, con acompañamiento real para tu transformación
           </p>
           <div className="hero-actions">
             <a href="#catalogo" className="hero-btn hero-btn-main">
@@ -32,7 +31,7 @@ export default function Hero() {
         </div>
         <div className="hero-img-wrapper">
           <img
-         
+            src={inicial}
             alt="Modelo en Bikini Fitness"
             className="hero-img"
           />

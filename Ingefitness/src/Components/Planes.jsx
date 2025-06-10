@@ -1,8 +1,11 @@
 
 import "../styles/Planes.css"
-
-
-const WHATSAPP_NUMBER = "519XXXXXXXX";
+import starter from "../imagenes/planstarter.jpg"
+import FH from "../imagenes/FH.jpg"
+import dias from "../imagenes/21dias.jpeg"
+import Bikini from "../imagenes/Bikini.jpg"
+import Model from "../imagenes/Model.png"
+const WHATSAPP_NUMBER = "5493513843509";
 
 const planes = [
   {
@@ -11,7 +14,7 @@ const planes = [
     description:
       "Entrenamiento especializado para quienes desean elevar su presencia en pasarelas y editoriales de moda. Incluye asesoría en poses, ritmo de entrenamiento y postura para lograr una silueta esbelta y fotogénica.",
     imgUrl:
-      "https://images.unsplash.com/photo-1571019613913-7f39f464b05e?auto=format&fit=crop&w=400&q=80",
+      Model,
   },
   {
     id: 2,
@@ -19,7 +22,7 @@ const planes = [
     description:
       "Programa integral que combina rutinas de tonificación con guías nutricionales personalizadas. Ideal para mejorar tu condición física, potenciar tu salud y mantener un estilo de vida equilibrado.",
     imgUrl:
-      "https://images.unsplash.com/photo-1594737625785-84232a9fa1e9?auto=format&fit=crop&w=400&q=80",
+      FH,
   },
   {
     id: 3,
@@ -27,7 +30,7 @@ const planes = [
     description:
       "Diseñado para principiantes: rutinas sencillas y progresivas que te ayudarán a crear el hábito de entrenar. Incluye seguimiento semanal y tips de motivación para que no te detengas.",
     imgUrl:
-      "https://images.unsplash.com/photo-1554284126-5833df49a016?auto=format&fit=crop&w=400&q=80",
+      starter
   },
   {
     id: 4,
@@ -35,7 +38,7 @@ const planes = [
     description:
       "Clase intensiva enfocada en esculpir glúteos, abdomen y caderas. Perfecto si quieres trabajar tus poses en bikini y lucir un cuerpo tonificado para tus fotos o concursos fitness.",
     imgUrl:
-      "https://images.unsplash.com/photo-1554284126-5833df49a016?auto=format&fit=crop&w=400&q=80",
+      Bikini,
   },
   {
     id: 5,
@@ -43,7 +46,7 @@ const planes = [
     description:
       "Reto de 21 días con entrenamientos diarios, planes de alimentación y soporte continuo. Si aceptas este desafío, verás resultados visibles en 3 semanas si te comprometes al 100 %.",
     imgUrl:
-      "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=400&q=80",
+      dias,
   },
 ];
 
@@ -56,7 +59,7 @@ export default function PlansSection() {
           <div className="plans-card" key={plan.id}>
             <div className="plans-img-wrapper">
               <img
-                
+                src={plan.imgUrl}
                 alt={plan.title}
                 className="plans-img"
               />

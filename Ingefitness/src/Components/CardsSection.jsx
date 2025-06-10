@@ -1,25 +1,20 @@
 import React, { useState } from "react";
 import "../styles/CardsSection.css";
+import grupal from "../imagenes/grupal.jpg"
 
 // Datos de ejemplo: puedes duplicar o modificar según tus clases
 const clases = [
   {
     id: 1,
-    title: "Clase Básica Bikini Fitness",
+    title: "Posing Grupal",
     imgUrl:
-      "https://images.unsplash.com/photo-1571019613913-7f39f464b05e?auto=format&fit=crop&w=400&q=80",
+      grupal,
   },
   {
     id: 2,
-    title: "Clase Avanzada Bikini Fitness",
+    title: "Modalidad Virtual",
     imgUrl:
       "https://images.unsplash.com/photo-1594737625785-84232a9fa1e9?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    id: 3,
-    title: "Entrenamiento en Pareja",
-    imgUrl:
-      "https://images.unsplash.com/photo-1554284126-5833df49a016?auto=format&fit=crop&w=400&q=80",
   },
 ];
 
@@ -68,7 +63,7 @@ export default function CardsSection() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // Aquí iría la lógica para enviar los datos (API, correo, etc.)
+ 
     console.log("Enviando formulario:", formData, "para clase:", selectedClase);
     alert(`¡Gracias ${formData.nombre}! Tu solicitud para "${selectedClase.title}" ha sido enviada.`);
     cerrarModal();
