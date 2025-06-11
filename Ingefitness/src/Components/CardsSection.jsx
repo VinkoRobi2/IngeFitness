@@ -17,7 +17,7 @@ const clases = [
   },
   {
     id: 3,
-    title: "Modalidad Virtual",
+    title: "Modalidad Virtual Online",
     imgUrl:
       "https://images.unsplash.com/photo-1594737625785-84232a9fa1e9?auto=format&fit=crop&w=400&q=80",
   }

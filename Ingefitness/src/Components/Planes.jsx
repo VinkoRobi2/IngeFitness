@@ -12,7 +12,7 @@ const planes = [
     id: 1,
     title: "PLAN FIT MODEL",
     description:
-      "Entrenamiento especializado para quienes desean elevar su presencia en pasarelas y editoriales de moda. Incluye asesoría en poses, ritmo de entrenamiento y postura para lograr una silueta esbelta y fotogénica.",
+      "Pensado para mujeres que quieren dar su primer paso en el fitness competitivo, sin necesidad de gran masa muscular.  Lográ un cuerpo armónico, estético y femenino con plan nutricional, entrenamiento, asesoramiento en suplementación y acompañamiento personalizado.  Si soñás con subirte al escenario y destacar por tu belleza, armonía y elegancia, este plan es para vos.",
     imgUrl:
       Model,
   },
@@ -28,7 +28,7 @@ const planes = [
     id: 3,
     title: "PLAN STARTER",
     description:
-      "Diseñado para principiantes: rutinas sencillas y progresivas que te ayudarán a crear el hábito de entrenar. Incluye seguimiento semanal y tips de motivación para que no te detengas.",
+      "Diseñado para principiantes: rutinas de tonificación simples y progresivas, con guías claras y plan nutricional personalizado. Incluye seguimiento semanal y tips de motivación para ayudarte a crear el hábito de entrenar, mejorar tu condición física y mantener un estilo de vida saludable.",
     imgUrl:
       starter
   },
@@ -36,7 +36,7 @@ const planes = [
     id: 4,
     title: "PLAN BIKINI FITNESS",
     description:
-      "Clase intensiva enfocada en esculpir glúteos, abdomen y caderas. Perfecto si quieres trabajar tus poses en bikini y lucir un cuerpo tonificado para tus fotos o concursos fitness.",
+      "Ideal para mujeres que buscan llevar su físico al siguiente nivel, con mayor definición y desarrollo muscular, manteniendo siempre la estética y la feminidad que exige esta categoría.  Incluye plan nutricional personalizado, seguimiento constante, entrenamiento específico y asesoramiento en suplementación..",
     imgUrl:
       Bikini,
   },
@@ -44,7 +44,7 @@ const planes = [
     id: 5,
     title: "PLAN DESAFÍO 21 🔥",
     description:
-      "Reto de 21 días con entrenamientos diarios, planes de alimentación y soporte continuo. Si aceptas este desafío, verás resultados visibles en 3 semanas si te comprometes al 100 %.",
+      "Plan rápido y efectivo, ideal para eventos, sesiones de fotos o viajes. Incluye entrenamiento, nutrición y seguimiento personalizado para que logres verte y sentirte increíble en tan solo 21 días.",
     imgUrl:
       dias,
   },
@@ -75,7 +75,7 @@ export default function PlansSection() {
                 rel="noopener noreferrer"
                 className="plans-btn"
               >
-                Saber más
+                EMPEZÀ HOY TU CAMBIO
               </a>
             </div>
           </div>

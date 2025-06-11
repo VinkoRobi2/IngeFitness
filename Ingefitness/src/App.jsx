@@ -7,6 +7,7 @@ import PlansSection from "./Components/Planes";
 import AdminLogin from "./Components/AdminLogin";
 import AboutUs from "./Components/AboutUs";
 import Footer from "./Components/Footer";
+import Testigos from "./Components/testigos";
 
 
 const Home = () => (
@@ -16,6 +17,7 @@ const Home = () => (
     <PlansSection />
     <CardsSection />
     <AboutUs />
+    <Testigos />
     <Footer />
 
   </>

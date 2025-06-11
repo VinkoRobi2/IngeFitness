@@ -1,8 +1,12 @@
-
 .about-us {
   padding: 4rem 1rem;
-  background-color: #111111;  
-  color: #ffffff; 
+  background: linear-gradient(
+    120deg,
+    #111111 0%,
+    #1a1a1a 54%,
+    #111111 100%
+  );
+  color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -15,82 +19,112 @@
   font-size: 3rem;
   text-align: center;
   margin-bottom: 2rem;
-  color: #ffd700; 
+  color: #ffd700;
   font-weight: bold;
 }
 
 .content {
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 2rem;
-  justify-content: center;
   animation: fadeInUp 1s ease-out;
 }
 
-.image {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out;
-}
-
-.image:hover {
-  transform: scale(1.05); 
+/* Texto a la izquierda */
+.text {
+  flex: 1 1 50%;
 }
 
 .description {
   font-size: 1.2rem;
   text-align: justify;
   line-height: 1.8;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #cccccc; 
+  color: #cccccc;
 }
 
 .highlight {
   font-weight: bold;
-  color: #ffd700; 
+  color: #ffd700;
 }
 
+/* Slider de imagen a la derecha */
+.image-slider {
+  position: relative;
+  flex: 1 1 50%;
+  display: flex;
+  align-items: flex-start; /* Cambiado de center a flex-start para mover la imagen hacia arriba */
+  justify-content: center;
+  margin-top: -16rem!important; /* Ajustado para que la imagen se superponga al texto */
+  padding-top: 2rem; /* Agregado padding para que la imagen se mueva hacia arriba */
+}
+
+.image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image:hover {
+  transform: scale(1.03);
+}
+
+/* Flechas */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(17,17,17,0.6);
+  border: none;
+  color: #ffd700;
+  font-size: 2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+  user-select: none;
+}
+
+.arrow:hover {
+  background: rgba(17,17,17,0.9);
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+/* Animación fadeInUp */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-
+/* Responsividad */
 @media (max-width: 900px) {
   .content {
     flex-direction: column-reverse;
-    gap: 3rem;
-    padding: 4.5rem 1rem 2rem 1rem;
-    align-items: center;
     text-align: center;
+    gap: 3rem;
   }
-
-  .image {
-    max-width: 80%;
+  .text, .image-slider {
+    flex: 1 1 100%;
   }
+  .image { max-width: 80%; }
 }
 
 @media (max-width: 480px) {
-  .title {
-    font-size: 2rem;
-  }
-
-  .description {
-    font-size: 1rem;
-  }
-
-  .image {
-    max-width: 70%;
-  }
+  .title { font-size: 2rem; }
+  .description { font-size: 1rem; }
+  .arrow { font-size: 1.5rem; padding: 0.3rem; }
+}
+@media (max-width: 360px) {
+  .title { font-size: 1.5rem; }
+  .description { font-size: 0.9rem; }
+  .arrow { font-size: 1.2rem; padding: 0.2rem; }
 }
