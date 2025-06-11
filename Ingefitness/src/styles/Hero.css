@@ -24,7 +24,26 @@
     background-position: 100% 0%;
   }
 }
+.hero-bg {
+  position: relative;
+  overflow: hidden;
+}
 
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../imagenes/bg.JPG');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35; 
+  z-index: 1;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+}
  
 .hero-container {
   max-width: 1100px;
@@ -86,32 +105,31 @@
 
 
 .hero-btn-main {
-  background: linear-gradient(120deg, #ffd700 40%, #e6c200 100%);
-  color: #111111;
+  background: linear-gradient(120deg, #6C63FF 40%, #48C6EF 100%);
+  color: #fff;
 }
 .hero-btn-main:hover {
-  background: linear-gradient(120deg, #e6c200 30%, #ffd700 90%);
+  background: linear-gradient(120deg, #48C6EF 30%, #6C63FF 90%);
   transform: scale(1.04);
-  box-shadow: 0 6px 28px 0 rgba(230, 194, 0, 0.3);
+  box-shadow: 0 6px 28px 0 rgba(76, 99, 255, 0.3);
 }
-
 
 .hero-btn-outline {
-  background: rgba(17, 17, 17, 0.88);
-  color: #ffd700;
-  border: 2px solid #ffd700;
+  background: rgba(24, 24, 36, 0.88);
+  color: #6C63FF;
+  border: 2px solid #6C63FF;
 }
 .hero-btn-outline:hover {
-  background: #ffd700;
-  color: #111111;
+  background: #6C63FF;
+  color: #fff;
   transform: scale(1.03);
-  box-shadow: 0 4px 22px 0 rgba(255, 215, 0, 0.2);
+  box-shadow: 0 4px 22px 0 rgba(76, 99, 255, 0.2);
 }
 
 
 .hero-proof {
   font-size: 1rem;
-  color: #bbbbbb;
+  color: #B0B3C6;
   display: flex;
   gap: 0.7rem;
   align-items: center;
@@ -119,7 +137,7 @@
   animation: fadeSlideUp 1.2s 0.55s both;
 }
 .hero-stars {
-  color: #ffd700;
+  color: #6C63FF;
   letter-spacing: 1px;
   font-weight: bold;
   font-size: 1.05em;

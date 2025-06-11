@@ -25,17 +25,19 @@ export default function Hero() {
             </a>
           </div>
           <div className="hero-proof">
-            <span>+50 modelos satisfechas</span>
+            <span>+250 clientes satisfechas</span>
             <span className="hero-stars">★★★★★</span>
           </div>
         </div>
-        <div className="hero-img-wrapper">
+        {/* <div className="hero-img-wrapper">
           <img
             src={inicial}
             alt="Modelo en Bikini Fitness"
             className="hero-img"
           />
-        </div>
+        </div> */}
+        
+        
       </div>
       <div className="hero-scroll">
         <span />

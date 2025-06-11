@@ -35,7 +35,7 @@ export default function Navbar() {
           onMouseOut={(e) => e.currentTarget.classList.remove("bounce")}
           onClick={() => setOpen(false)}
         >
-          BikiniGold
+          FitnessbyMoeller
         </Link>
         <button
           className={`navbar-toggle${open ? " open" : ""}`}

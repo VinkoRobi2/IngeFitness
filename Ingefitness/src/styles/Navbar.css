@@ -26,9 +26,9 @@
 
 
 .navbar-logo {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  color: #FFD700;
+  color: #6C63FF;
   letter-spacing: -1px;
   user-select: none;
   cursor: pointer;
@@ -85,7 +85,7 @@
   bottom: 0;
   width: 0;
   height: 2px;
-  background: #FFD700;
+  background: #6C63FF;
   border-radius: 1px;
   transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
   transform: translateX(-50%);
@@ -93,19 +93,19 @@
 }
 .navbar-links li a:hover,
 .navbar-links li a:focus {
-  color: #FFD700;
+  color: #6C63FF;
 }
 .navbar-links li a:hover::before,
 .navbar-links li a:focus::before {
   width: 110%;
 }
 .navbar-links li a.active {
- color: #FFD700;
+ color: #6C63FF;
   font-weight: 600;
 }
 .navbar-links li a.active::before {
   width: 110%;
-  background: #FFD700;
+  background: #6C63FF;
 }
 
 
@@ -118,7 +118,7 @@
 }
 .navbar-social a:hover svg rect {
   fill: #FFF;
-  filter: drop-shadow(0 0 12px #FFD700);
+  filter: drop-shadow(0 0 12px #6C63FF);
 }
 
 
@@ -140,7 +140,7 @@
   display: block;
   width: 2.2rem;
   height: 3px;
-  background: #FFD700;
+   background: #6C63FF;
   border-radius: 2px;
   transition: all 0.38s cubic-bezier(.68,-0.55,.27,1.55);
 }
