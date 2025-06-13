@@ -1,27 +1,27 @@
 import React, { useState } from "react";
 import "../styles/testigos.css";
+import testigo1 from "../imagenes/testigos1.jpg";
+import testigos2 from "../imagenes/testigos2.jpg";
+import testigos3 from "../imagenes/testigos3.jpg"; // Asegúrate de tener esta imagen
 
 const items = [
   {
-    before: "/images/test1-before.jpg",
-    after: "/images/test1-after.jpg",
+    image: testigo1,
     caption: "Transformación 1",
   },
   {
-    before: "/images/test2-before.jpg",
-    after: "/images/test2-after.jpg",
+    image: testigos2,
     caption: "Transformación 2",
   },
   {
-    before: "/images/test3-before.jpg",
-    after: "/images/test3-after.jpg",
+    image: testigos3, // Asegúrate de tener la imagen correcta aquí
     caption: "Transformación 3",
   },
 ];
 
 export default function Testigos() {
   const [idx, setIdx] = useState(0);
-  const [slider, setSlider] = useState(50);
+  const [slider, setSlider] = useState(100); // Empieza con la imagen al 100%
 
   const prev = () => setIdx((idx + items.length - 1) % items.length);
   const next = () => setIdx((idx + 1) % items.length);
@@ -34,15 +34,10 @@ export default function Testigos() {
           <button className="arrow left" onClick={prev}>‹</button>
           <div className="slider-wrapper">
             <img
-              src={items[idx].before}
-              alt="Antes"
-              className="img before"
-            />
-            <img
-              src={items[idx].after}
-              alt="Después"
-              className="img after"
-              style={{ width: `${slider}%` }}
+              src={items[idx].image}
+              alt="Transformación"
+              className="img"
+              style={{ width: `${slider}%` }} // Control deslizante para cambiar el tamaño de la imagen
             />
             <input
               type="range"
