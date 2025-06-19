@@ -1,11 +1,22 @@
 
 import React, { useState } from "react";
 import "../styles/Sobrenosotros.css";
+import cards1 from "../imagenes/cards1.jpg";
+import cards2 from "../imagenes/cards2.jpg";
+import cards3 from "../imagenes/cards3.JPG";
+import cards4 from "../imagenes/cards4.JPG";
+import cards5 from "../imagenes/cards5.jpg";
+import cards6 from "../imagenes/cards6.jpg";
 
 const images = [
-  "/images/IMG_3477.JPG",
-  "/images/otra1.jpg",
-  "/images/otra2.jpg",
+  cards1,
+  cards2,
+  cards3,
+  cards4,
+  cards5,
+  cards6,
+  
+
 ];
 
 const AboutUs = () => {
@@ -29,7 +40,7 @@ const AboutUs = () => {
               <br /><br />
               También soy fundadora de DivaPosing, donde les enseño el arte de posar, con tecnica, presencia y seguridad para que subas al escenario marcando la diferencia. Sin embargo, lo más importante para mí es acompañarte en una transformación real, desde adentro hacia afuera, para que logres ser la mejor version de ti.
               <br /><br />
-              <span className="highlight">Entrená con propósito. Transformá tu cuerpo. Superá tus límites.</span>
+              <span className="highlight">Entrena con propósito. Transforma tu cuerpo. Supera tus límites.</span>
             </p>
           </div>
           <div className="image-slider">
