@@ -126,6 +126,79 @@
   background: #e6c200;
   transform: scale(1.03);
 }
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.products-grid.carousel {
+  display: flex !important;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 2rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+}
+
+.products-grid.carousel .product-card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  max-width: 300px;
+  width: 300px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.products-grid.carousel .product-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.6s ease;
+}
+
+.carousel-arrow {
+  background-color: #ffd700;
+  border: none;
+  color: #111;
+  font-size: 2rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+  user-select: none;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  background-color: #e6c200;
+}
+
+.left-arrow {
+  margin-right: 8px;
+}
+
+.right-arrow {
+  margin-left: 8px;
+}
+
+.carousel-arrow:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+.carousel-arrow:disabled:hover {
+  background-color: #555;
+}
+.carousel-arrow:disabled:active {
+  transform: none;
+}
+.filtered-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
 
 
 @keyframes fadeInUp {

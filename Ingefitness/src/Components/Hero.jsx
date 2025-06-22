@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="hero-container">
         <div className="hero-texts">
           <h1 className="hero-title">
-            El cambio de tu vida empieza <span id="aqui">aquí</span>
+            El cambio de tu vida empieza aquí
           </h1>
           <p className="hero-desc">
             Entrenamiento y nutrición personalizados, con acompañamiento real para tu transformación

@@ -4,7 +4,8 @@ import "../styles/Navbar.css";
 
 const navLinks = [
   { name: "Inicio", href: "/" },
-  { name: "Catálogo", href: "#catalogo" },
+  { name: "Productos", href: "#entrenamientos" },
+  { name: "Planes", href: "#planes" },
   { name: "Sobre mí", href: "#about" },
   { name: "Testimonios", href: "#testimonios" },
   { name: "Contacto", href: "#contacto" },
