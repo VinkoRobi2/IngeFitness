@@ -8,6 +8,7 @@ import AdminLogin from "./Components/AdminLogin";
 import AboutUs from "./Components/AboutUs";
 import Footer from "./Components/Footer";
 import Testigos from "./Components/testigos";
+import Productos from "./Components/Productos";
 
 
 const Home = () => (
@@ -18,6 +19,7 @@ const Home = () => (
     <CardsSection />
     <AboutUs />
     <Testigos />
+    <Productos/>
     <Footer />
 
   </>

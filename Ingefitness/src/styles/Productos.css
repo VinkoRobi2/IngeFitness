@@ -1,0 +1,165 @@
+
+.products-section {
+  padding: 4rem 2rem;
+  background: #111;
+  color: #e0e0e0;
+  text-align: center;
+}
+.products-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #ffd700;
+  text-shadow: 0 1px 6px rgba(255, 215, 0, 0.5);
+}
+
+
+.products-filters {
+  margin-bottom: 2rem;
+}
+.products-filters button {
+  margin: 0 0.5rem;
+  padding: 0.5em 1em;
+  background: transparent;
+  border: 2px solid #ffd700;
+  border-radius: 0.5rem;
+  color: #ffd700;
+  cursor: pointer;
+  transition: background 0.6s, color 0.6s;
+}
+.products-filters button.active,
+.products-filters button:hover {
+  background: #ffd700;
+  color: #111;
+}
+
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+
+.product-card {
+  width: 100%;
+  max-width: 300px;
+  perspective: 1000px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.product-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.6s ease;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+.product-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  backface-visibility: hidden;
+  background: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+.card-front img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  filter: brightness(0.9);
+  transition: transform 0.3s ease;
+}
+.card-front:hover img {
+  transform: scale(1.1);
+}
+.card-front h3 {
+  margin: 1rem;
+  color: #ffd700;
+}
+
+
+.card-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  transform: rotateY(180deg);
+  color: #e0e0e0;
+}
+.card-back p {
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+
+.card-btn {
+  padding: 0.6em 1.6em;
+  background: #ffd700;
+  color: #111;
+  font-weight: 600;
+  border: none;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+  transition: background 0.2s, transform 0.15s;
+}
+.card-btn:hover {
+  background: #e6c200;
+  transform: scale(1.03);
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .products-title {
+    font-size: 2rem;
+  }
+  .products-filters button {
+    padding: 0.4em 0.8em;
+    font-size: 0.9rem;
+  }
+  .product-card {
+    max-width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .products-title {
+    font-size: 1.8rem;
+  }
+  .products-filters button {
+    padding: 0.3em 0.6em;
+    font-size: 0.8rem;
+  }
+  .card-back p {
+    font-size: 0.9rem;          
+
+  }
+    }
